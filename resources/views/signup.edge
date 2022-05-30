@@ -1,0 +1,15 @@
+@layout('layout')
+@section('main')
+@!component('components/logo')
+<form method="post">
+    <fieldset>
+        <legend>Créer un nouveau compte</legend>
+        <input type="text" name="username" placeholder="username" id="username">
+        <input type="email" name="email" placeholder="email Address" id="email">
+        <input type="password" name="password" id="password" placeholder="password">
+        <input type="password" name="password_confirmed" id="password_confirmed" placeholder="repeat password">
+        <button type="submit">créer mon compte</button>
+        <a href="{{route('login_page')}}">Déjà un compte?</a>
+    </fieldset>
+</form>
+@endsection
