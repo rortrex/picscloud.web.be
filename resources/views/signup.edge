@@ -4,10 +4,26 @@
 <form method="post">
     <fieldset>
         <legend>Créer un nouveau compte</legend>
-        <input type="text" name="username" placeholder="username" id="username">
-        <input type="email" name="email" placeholder="email Address" id="email">
-        <input type="password" name="password" id="password" placeholder="password">
-        <input type="password" name="password_confirmed" id="password_confirmed" placeholder="repeat password">
+        @!component('components/field',{
+            type:"text",
+            name:"username",
+            placeholder:"Nom d'utilisateur"
+        })
+        @!component('components/field',{
+            type:"email",
+            name:"email",
+            placeholder:"Adresse email"
+        })
+        @!component('components/field',{
+            type:"password",
+            name:"password",
+            placeholder:"Mot de passe"
+        })
+        @!component('components/field',{
+            type:"password",
+            name:"password_confirmed",
+            placeholder:"Répéter le mot de passe"
+        })
         <button type="submit">créer mon compte</button>
         <a href="{{route('login_page')}}">Déjà un compte?</a>
     </fieldset>
