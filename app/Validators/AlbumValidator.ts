@@ -1,7 +1,7 @@
 import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class SignupValidator {
+export default class AlbumValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   /*
@@ -24,19 +24,10 @@ export default class SignupValidator {
    *    ```
    */
   public schema = schema.create({
-    username:schema.string({trim:true}, [
-      rules.maxLength(20),
-      rules.minLength(4),
-      rules.unique({table:'users',column:'username'})
-    ]),
-    email:schema.string({trim:true},[
-      rules.email(),
-      rules.unique({table:'users',column:'email'})
-    ]),
-    password:schema.string([
-      rules.confirmed('password_confirmed'),
-      rules.maxLength(200)
-    ]),
+    album_title:schema.string({trim:true,escape:true},[
+      rules.maxLength(255),
+      rules.minLength(1),
+    ])
   })
 
   /**
@@ -51,11 +42,8 @@ export default class SignupValidator {
    *
    */
   public messages: CustomMessages = {
-    'required':'Ce champ est obligatoire.',
-    'username.minLength':"Votre nom d'utilisateur doit contenir au moins {{options.minLength}} caractères.",
-    'username.maxLength':"Votre nom d'utilisateur ne peut pas dépasser {{options.maxLength}} caractères.",
-    'username.unique':"Ce nom d'utilisateur est déjà utilisé.",
-    'email.unique':"Cette adresse email est déjà associée à un compte.",
-    'password_confirmed.confirmed':"Vos mots de passes ne correspondent pas."
+    required:'Ce champs est requis.',
+    'album_title.minLength':'Votre titre est vide.',
+    'album_title.maxLength':'Votre titre ne peut pas dépasser {{options.maxLength}} caractères.'
   }
 }

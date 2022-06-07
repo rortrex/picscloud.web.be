@@ -1,0 +1,19 @@
+@layout('layout')
+
+@section('main')
+  <div class="app">
+    <div>
+        <a href="{{route('dashboard')}}">&#8592; retour</a>
+    </div>
+    @include('partials/dashboard-nav.edge')
+      <section class="albums">
+        <div>
+            @each(album in albums)
+                <div class="card">
+                    <h6 class="card-title"><a href="/albums/{{album.id}}/{{album.slug}}">{{album.album_title}}</a></h6>
+                </div>
+            @end
+        </div>
+      </section>
+  </div>
+@endsection

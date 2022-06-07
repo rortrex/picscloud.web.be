@@ -1,0 +1,15 @@
+@if(flashMessages.has('info'))
+  <div class="flash flash-info">
+    {{ flashMessages.get('info') }}
+  </div>
+@endif
+@if(flashMessages.has('success'))
+  <div class="flash flash-success">
+    {{ flashMessages.get('success') }}
+  </div>
+@endif
+@if(flashMessages.has('error'))
+  <div class="flash flash-error">
+    {{ flashMessages.get('error') }}
+  </div>
+@endif

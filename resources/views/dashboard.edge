@@ -1,0 +1,64 @@
+@layout('layout')
+
+@section('main')
+  <div class="app">
+    @include('partials/dashboard-nav.edge')
+    <section class="hero">
+        <h2>hello {{user.username}}</h2>
+        <ul>
+            <li>email: {{user.email}}</li>
+            <li>email vérifié: {{user.email_signed}}</li>
+            <li>admin: {{user.is_admin}}</li>
+        </ul>
+    </section>
+    <section class="albums">
+        <header>
+            <h3>Vos albums</h3>
+            @if(!albums === false)
+              <a href="{{route('albums')}}">+ voir tous</a>
+            @endif
+        </header>
+        <footer>
+            @if(albums === false)
+            <div>
+                Vous n'avez aucun album.
+            </div>
+            @else
+                <div>
+                    @each(album in albums)
+                        <div class="card">
+                            <h6 class="card-title"><a href="/albums/{{album.id}}/{{album.slug}}">{{album.album_title}}</a></h6>
+                        </div>
+                    @end
+                </div>
+            @endif
+        </footer>
+        <div class="album-form">
+            <form action="/albums/create" method="post">
+                <fieldset>
+                    <legend>Créer un album</legend>
+                    @!component('components/field',{
+                        type:"text",
+                        name:"album_title",
+                        placeholder:"donnez un titre"
+                    })
+                    <button type="submit">créer</button>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <section class="cloud">
+        <header>
+            <h3>Fichiers récents</h3>
+        </header>
+        <form action="" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Uploader des fichiers</legend>
+                <input type="file" name="cloud_files" id="cloud_files" multiple>
+                <button type="submit">upload</button>
+            </fieldset>
+        </form>
+    </section>
+</div>
+@endsection
+
