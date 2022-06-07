@@ -25,7 +25,7 @@ Route.get('/','PagesController.index').as('welcome')
 Route.get('/auth/login','PagesController.login').as('login_page')
 Route.get('/auth/new','PagesController.signup').as('signup_page')
 
-Route.post('/auth/new', 'AuthController.registerAccount')
+Route.post('/auth/new', 'AuthController.signup')
 Route.post('/auth/login','AuthController.login')
 
 Route.group(() => {

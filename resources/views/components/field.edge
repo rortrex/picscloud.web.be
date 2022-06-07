@@ -1,11 +1,11 @@
-<div class="form-field">
+<div class="form-field mb-3">
     @if(flashMessages.has(`errors.${name}`))
-        <div class="alert alert-form-danger">
+        <div style="color:#9c0000">
             {{flashMessages.get(`errors.${name}`)}}
         </div>
     @endif    
     <input
-    class="{{ flashMessages.has(`errors.${name}`) ? 'is-invalid' : '' }}"
+    class="{{flashMessages.has(`errors.${name}`) ? 'is-invalid' : '' }}"
     id="{{name}}" 
     name="{{name}}" 
     type="{{type}}" 
