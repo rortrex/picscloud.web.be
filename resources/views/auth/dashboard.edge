@@ -24,10 +24,10 @@
                 Vous n'avez aucun album.
             </div>
             @else
-                <div>
+                <div style="display:flex;margin-top:20px;">
                     @each(album in albums)
-                        <div class="card">
-                            <h6 class="card-title"><a href="/albums/{{album.id}}/{{album.slug}}">{{album.album_title}}</a></h6>
+                        <div class="card" style="width:18rem;margin-left:10px;">
+                            <h6 class="card-title"><a href="/albums/{{album.slug}}">{{album.album_title}}</a></h6>
                         </div>
                     @end
                 </div>

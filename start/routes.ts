@@ -22,11 +22,11 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/','PagesController.index').as('welcome')
 
-Route.get('/auth/login','PagesController.login').as('login_page')
-Route.get('/auth/new','PagesController.signup').as('signup_page')
+Route.get('/connexion','PagesController.login').as('login_page')
+Route.get('/inscription','PagesController.signup').as('signup_page')
 
-Route.post('/auth/new', 'AuthController.signup')
-Route.post('/auth/login','AuthController.login')
+Route.post('/inscription', 'AuthController.signup')
+Route.post('/connexion','AuthController.login')
 
 Route.group(() => {
 
@@ -34,7 +34,7 @@ Route.group(() => {
 
     Route.group(() => {
         Route.get('/','PagesController.albums').as('albums')
-        Route.get('/:id/:slug','AlbumsController.show')
+        Route.get('/:slug','AlbumsController.show')
         Route.post('/create','AlbumsController.store')
     }).prefix('/albums')
 

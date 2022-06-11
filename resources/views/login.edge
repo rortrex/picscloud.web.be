@@ -1,7 +1,7 @@
 @layout('layout')
 @section('main')
 @!component('components/logo')
-<form id="login" action="/auth/login" method="post" enctype="application/x-www-form-urlencoded">
+<form id="login" method="post" enctype="application/x-www-form-urlencoded">
     <fieldset>
         <legend>Se connecter</legend>
         @!component('components/field',{
@@ -19,4 +19,4 @@
         Nouvel utilisateur? <a href="{{route('signup_page')}}">créer un compte.</a>
     </fieldset>
 </form>
-@endsection
+@endsection 

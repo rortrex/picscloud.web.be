@@ -1,0 +1,11 @@
+@layout('layout')
+
+@section('main')
+  <div class="app">
+    <div>
+        <a href="{{route('dashboard')}}">&#8592; retour</a>
+    </div>
+    @include('partials/dashboard-nav.edge')
+    Album : {{ album.album_title }}
+  </div>
+@endsection

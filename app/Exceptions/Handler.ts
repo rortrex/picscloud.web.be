@@ -19,7 +19,7 @@ import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler'
 
 export default class ExceptionHandler extends HttpExceptionHandler {
 
-  protected disableStatusPagesInDevelopment = false
+  protected disableStatusPagesInDevelopment = true
 
   protected statusPages = {
     '403': 'errors/unauthorized',
